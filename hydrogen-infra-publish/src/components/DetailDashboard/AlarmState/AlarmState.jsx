@@ -13,9 +13,6 @@ function AlarmState() {
     important_alarm = alarms.filter((item) => item.importance === 2).length;
     default_alarm = alarms.filter((item) => item.importance === 1).length;
   }
-
-
-
     const items = [
         {
           id: 1,

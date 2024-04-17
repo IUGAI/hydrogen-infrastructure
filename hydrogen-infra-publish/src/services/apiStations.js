@@ -1,7 +1,7 @@
 import { json } from "react-router-dom";
 
 export const getStations = async () => {
-    const resStation = await fetch("http://172.30.1.86:8080/api/stations");
+    const resStation = await fetch("http://localhost:8080/api/stations");
     const responseData = await resStation.json();
     return responseData;
 }

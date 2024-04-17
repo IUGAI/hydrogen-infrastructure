@@ -13,8 +13,6 @@ import { deleteStation, getStations } from '../../../services/apiStations'
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import ModalDefault from "../../Modal/ModalDefault";
 
-
-
 const columns = [
   {
     field: "id",

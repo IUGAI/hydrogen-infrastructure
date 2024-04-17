@@ -45,10 +45,6 @@ function StationRegister({ show, setshow }) {
   }
 
 
-
-
-  
-
   function onError(errors) {
     console.log(errors);
   }
@@ -56,7 +52,6 @@ function StationRegister({ show, setshow }) {
   const handleclick = () => {
     setshow(!show);
   };
-
 
 
   return (
