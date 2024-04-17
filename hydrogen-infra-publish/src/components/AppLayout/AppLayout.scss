@@ -1,41 +1,55 @@
 .container {
+  overflow: auto;
   .header {
-    height: 50px;
+    height: 60px;
+    position: fixed;
+    z-index: 30;
+    width: 100%;
     background-color: #1c2641;
     border-bottom: 1px solid #222e4e;
   }
 
   .main {
+    @media (max-width: 1536px) {
+    }
 
-    height:100vh; /* Оставшаяся высота за вычетом высоты Header */
-    overflow: hidden;
-
-    .inner-container{
-      overflow: hidden;
+    .inner-container {
       display: flex;
-      height:100vh; 
+      padding-top: 60px;
+      height: 100vh;
+
       .sidebar {
         width: 250px;
-        height: 100vh;
         background-color: #1c2641;
+        padding: 20px 0;
         overflow: auto;
+        transition: width 0.3s ease;
+
+        &.hide {
+          width: 70px;
+          transition: width 0.3s ease;
+          display: flex;
+        }
+
         &::-webkit-scrollbar {
           width: 1px; /* Ширина полосы прокрутки */
         }
-        
+
         // &::-webkit-scrollbar-thumb {
-          //   background-color: #888; /* Цвет полосы прокрутки */
-          //   border-radius: 5px; /* Закругление углов полосы прокрутки */
-          // }
-          
-          &::-webkit-scrollbar-track {
-            background-color: #1c2641; /* Цвет фона полосы прокрутки */
-          }
+        //   background-color: #888; /* Цвет полосы прокрутки */
+        //   border-radius: 5px; /* Закругление углов полосы прокрутки */
+        // }
+
+        &::-webkit-scrollbar-track {
+          background-color: #1c2641; /* Цвет фона полосы прокрутки */
         }
-        
-        .contents {
-          flex: 1; /* Занимать оставшееся пространство */
+        @media (max-width: 1620px) {
+          width: 220px;
+        }
+        @media (max-width: 1300px) {
+          //  display: none;
         }
       }
+    }
   }
 }

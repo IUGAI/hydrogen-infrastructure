@@ -1,42 +1,28 @@
 import "./GraphAttention.scss";
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import Graph from "../../../Graph/Graph";
 
 function GraphAttention({ items }) {
+  const { name, title, percentage } = items;
 
-
-  const {name, color_active,color_disactive,title, color_stroke} = items;
-  const data = [
-    { name: "Group A", value: 400 },
-    { name: "Group B", value: 800 },
-  ];
-  const COLORS = [color_disactive, color_active];
+  console.log(items);
 
   return (
     <div className="graph-content">
       <div className="graph-item">
         <div className="graph-value">
           <span className="text-value">{name}</span>
-          <span className="text-percentage">75%</span>
+          <span className="text-percentage">{percentage}%</span>
         </div>
-
-        <PieChart width={200} height={200}>
-          <Pie
-            data={data}
-            cx={93}
-            cy={92}
-            stroke={color_stroke}
-            innerRadius={55}
-            outerRadius={80}
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart>
+        <Graph items={items} />
+        {percentage !== "0" && (
+          <div
+            className={
+              name === "양호" || name === "충전소"
+                ? "circle-dash cirlce-dash-color"
+                : "circle-dash"
+            }
+          ></div>
+        )}
       </div>
       <span className="text-main-value">{title}</span>
     </div>
